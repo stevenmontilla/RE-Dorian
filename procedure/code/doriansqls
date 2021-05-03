@@ -1,0 +1,14 @@
+
+#add a count field
+
+ALTER TABLE dorian
+ADD COLUMN cuenta int;
+
+UPDATE dorian
+SET cuenta = 1
+
+
+
+SELECT reg_name, count(total_both) as cntwards, sum(total_both) as totalpop, sum(total_male) as male, sum(total_fema) as female, sum(total_fema)::real / sum(total_male) as genratio
+FROM census
+GROUP BY reg_name;

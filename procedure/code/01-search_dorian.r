@@ -13,6 +13,7 @@ install.packages(setdiff(packages, rownames(installed.packages())), quietly=TRUE
 
 library(rtweet)
 library(here)
+library(dplyr)
 
 ############# SEARCH TWITTER API ############# 
 
@@ -29,11 +30,11 @@ library(here)
 #this should launch a web browser and ask you to log in to twitter
 #replace app, consumer_key, and consumer_secret data with your own developer acct info
 twitter_token <- create_token(
-  app = "yourapp",  					#replace yourapp with your app name
-  consumer_key = "yourkey",  		#replace yourkey with your consumer key
-  consumer_secret = "yoursecret",  #replace yoursecret with your consumer secret
-  access_token = NULL,
-  access_secret = NULL
+  app = "catastrofe",  					#replace yourapp with your app name
+  consumer_key = "hEK5YPe5HczE5HTHWMxoBprx2",  		#replace yourkey with your consumer key
+  consumer_secret = "8FUKFGvMtII2OBR0LFPEuuL3VxcNTYdCulPdvtECq4DMufxG5A",  #replace yoursecret with your consumer secret
+  access_token = "1234342144774746113-fMAFmkwuTgsD8o0n2UGw9CCRzcuslD",
+  access_secret = "rKXRBfVFdzuzPE3GMr0C1s4Es463ZcngHJwfwjLsliDCg"
 )
 
 #get tweets for hurricane Dorian, searched on September 11, 2019
@@ -52,6 +53,7 @@ november <- search_tweets("-filter:verified OR filter:verified", n=200000, inclu
 # then run the following line of code to load the data into your environment
 
 load(here("data","derived","private","dorian.RData"))
+
 
 # In the following code, you can practice running the queries on dorian3
 
